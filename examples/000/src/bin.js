@@ -5,8 +5,8 @@ const version = require('../package.json').version
 
 // 获得用户的输入内容
 const getUserInputs = require('./prompts.js')
-const download = require('./download')
-const updateFiles = require('./update')
+const downloadTemplate = require('./download')
+const updateFilesWithUserInputs = require('./update')
 
 program.version(version, '-v, --version')
 
@@ -18,8 +18,8 @@ program
     const projectPath = `${process.cwd()}/${name}`
     const isExist = fse.existsSync(projectPath)
     const options = await getUserInputs({ isExist, name, projectPath })
-    await download(options)
-    await updateFiles(options)
+    await downloadTemplate(options)
+    await updateFilesWithUserInputs(options)
   })
 
 program.parseAsync(process.argv)
