@@ -1,0 +1,27 @@
+{
+  "name": "01-commander",
+  "version": "1.0.0",
+  "description": "- 安装babel、eslint、prettier、.editorconfig文件 - `npm link`",
+  "main": "index.js",
+  "bin": {
+    "lcli": "src/bin.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.15.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "prettier": "2.2.1"
+  },
+  "dependencies": {
+    "commander": "^6.2.0"
+  }
+}
