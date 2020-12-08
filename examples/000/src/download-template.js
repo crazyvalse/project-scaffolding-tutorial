@@ -1,19 +1,23 @@
+const fse = require('fs-extra')
 const downloadTemplate = require('download-git-repo')
 const chalk = require('chalk')
 const ora = require('ora')
 const symbols = require('log-symbols')
 
-const templateUrls = require('../config/default.json').templates
+// 模板的下载地址
+const templateGitUrls = require('../config/default.json').templates
 
 async function downloadTemplates(options) {
   return new Promise((resolve, reject) => {
-    if (options.isExist) {
+    // 删除与项目同名的文件夹
+    if (fse.existsSync(options.projectPath)) {
       const fse = require('fs-extra')
       fse.removeSync(options.projectPath)
     }
+    // 下载模板
     const spinner = ora(`下载 ${options.template} 模板 中...`).start()
     downloadTemplate(
-      `direct:${templateUrls[options.template].url}`,
+      `direct:${templateGitUrls[options.template].url}`,
       options.name,
       { clone: true },
       (err) => {

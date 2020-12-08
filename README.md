@@ -1,9 +1,4 @@
-##
-
-### TODO
-
-- [ ] commander
-- [ ] commander
+## 手写一个规范流程化的脚手架
 
 ## 目标
 
