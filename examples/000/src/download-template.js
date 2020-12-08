@@ -3,10 +3,7 @@ const chalk = require('chalk')
 const ora = require('ora')
 const symbols = require('log-symbols')
 
-const gitUrl = {
-  web: 'https://git.fzyun.net/frontend/docs/templates/web-vue-cli3.git',
-  mobile: 'https://git.fzyun.net/frontend/docs/templates/mobile-nuxt.git'
-}
+const templateUrls = require('../config/default.json').templates
 
 async function downloadTemplates(options) {
   return new Promise((resolve, reject) => {
@@ -16,7 +13,7 @@ async function downloadTemplates(options) {
     }
     const spinner = ora(`下载 ${options.template} 模板 中...`).start()
     downloadTemplate(
-      `direct:${gitUrl[options.template]}`,
+      `direct:${templateUrls[options.template].url}`,
       options.name,
       { clone: true },
       (err) => {

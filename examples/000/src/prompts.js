@@ -4,6 +4,11 @@
  * @type {Array}
  */
 const inquirer = require('inquirer')
+const templates = require('../config/default.json').templates
+const choices = Object.keys(templates).map((type) => ({
+  name: type,
+  value: type
+}))
 
 const versionQuestion = {
   type: 'input',
@@ -30,14 +35,7 @@ const templateQuestion = {
   message: `请选择要下载的模板: `,
   name: 'template',
   choices: [
-    {
-      name: 'web',
-      value: 'web'
-    },
-    {
-      name: 'mobile',
-      value: 'mobile'
-    }
+    ...choices
   ]
 }
 
@@ -62,7 +60,12 @@ const cliQuestion = {
 }
 
 async function getUserInputs(options) {
-  let prompts = [versionQuestion, descriptionQuestion, templateQuestion, cliQuestion]
+  let prompts = [
+    versionQuestion,
+    descriptionQuestion,
+    templateQuestion,
+    cliQuestion
+  ]
   const answers = await inquirer.prompt(prompts)
   return {
     ...answers,
@@ -71,3 +74,4 @@ async function getUserInputs(options) {
 }
 
 module.exports = getUserInputs
+
