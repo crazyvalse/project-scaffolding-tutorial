@@ -4,6 +4,7 @@ function updateFiles(options) {
   return new Promise((resolve, reject) => {
     // 更新 package.json
     updatePackageJson(options)
+    resolve()
   })
 }
 

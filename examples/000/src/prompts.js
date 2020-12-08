@@ -5,13 +5,6 @@
  */
 const inquirer = require('inquirer')
 
-// const replaceFileQuestion = {
-//   type: 'confirm',
-//   message: `文件夹已存在，是否覆盖: `,
-//   name: 'doReplaced',
-//   default: true
-// }
-
 const versionQuestion = {
   type: 'input',
   message: `Version: `,
@@ -67,8 +60,6 @@ const cliQuestion = {
     }
   ]
 }
-
-// console.info(/^((\d){1,3}\.(\d){1,3}\.(\d){1,3})$/g.test('0.1.0'))
 
 async function getUserInputs(options) {
   let prompts = [versionQuestion, descriptionQuestion, templateQuestion, cliQuestion]
