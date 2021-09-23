@@ -1,10 +1,10 @@
 {
-  "name": "01-commander",
+  "name": "02",
   "version": "1.0.0",
   "description": "- 安装babel、eslint、prettier、.editorconfig文件 - `npm link`",
   "main": "index.js",
   "bin": {
-    "lcli": "src/bin.js"
+    "fcli2": "src/bin.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -9,18 +9,19 @@ const templateGitUrls = require('../config/default.json').templates
 
 async function downloadTemplates(options) {
   return new Promise((resolve, reject) => {
-    // 删除与项目同名的文件夹
+    // 1. 删除与项目同名的文件夹
     if (fse.existsSync(options.projectPath)) {
       const fse = require('fs-extra')
       fse.removeSync(options.projectPath)
     }
-    // 下载模板
+    // 2. 下载模板
     const spinner = ora(`下载 ${options.template} 模板 中...`).start()
     downloadTemplate(
       `direct:${templateGitUrls[options.template].url}`,
       options.name,
       { clone: true },
       (err) => {
+        // 失败的话，结束进程
         if (err) {
           spinner.fail()
           console.error(
@@ -30,6 +31,7 @@ async function downloadTemplates(options) {
           reject(err)
           process.exit(1)
         }
+        // 成功的话，返回 options
         spinner.succeed('下载成功！')
         resolve(options)
       }
@@ -38,3 +40,10 @@ async function downloadTemplates(options) {
 }
 
 module.exports = downloadTemplates
+
+// const name = 'hello-world'
+// downloadTemplates({
+//   projectPath: process.cwd() + '/' + name,
+//   name,
+//   template: 'web'
+// })

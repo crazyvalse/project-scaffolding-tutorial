@@ -18,7 +18,7 @@ const projectNameQuestion = {
   message: `请输入项目名称（英文）：`,
   name: 'name',
   validate: function (name) {
-    if (!/^[a-zA-Z_]\w+$/g.test(name)) {
+    if (!/^[a-zA-Z_][\w_\-]+$/g.test(name)) {
       return '请输入正确的项目名称！'
     }
     if (fse.existsSync(`${cwd}/${name}`)) {
@@ -90,3 +90,8 @@ async function getUserInputs() {
 }
 
 module.exports = getUserInputs
+
+const promise = getUserInputs()
+promise.then((answer) => {
+  console.info(answer)
+})

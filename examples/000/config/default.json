@@ -1,10 +1,10 @@
 {
   "templates": {
     "web": {
-      "url": "https://git.fzyun.net/frontend/docs/templates/web-vue-cli3.git"
+      "url": "https://github.com/crazyvalse/nuxt-example.git"
     },
     "mobile": {
-      "url": "https://git.fzyun.net/frontend/docs/templates/mobile-nuxt.git"
+      "url": "https://github.com/crazyvalse/nuxt-example.git"
     }
   }
 }
